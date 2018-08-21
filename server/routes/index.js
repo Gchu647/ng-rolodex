@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const systems = require('./systems');
-const clients = require('./clients');
+const contacts = require('./contacts');
 
 // routes
 router.use('/', systems);
-router.use('/clients', clients);
+router.use('/contacts', contacts);
 
 module.exports = router;
