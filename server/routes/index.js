@@ -1,13 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const users = require('./users');
+const systems = require('./systems');
 const clients = require('./clients');
 
-router.get('/', (req, res) => {
-  res.send('index.js works!');
-});
-
-router.use('/users', users);
+// routes
+router.use('/', systems);
 router.use('/clients', clients);
 
 module.exports = router;
