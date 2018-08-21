@@ -4,8 +4,8 @@ class User extends bookshelf.Model {
   get tableName() { return 'users'; }
   get hasTimestamps() { return true; }
 
-  clients() {
-    return this.hasMany('Client', 'created_by');
+  contacts() {
+    return this.hasMany('Contact', 'created_by');
   }
 }
 

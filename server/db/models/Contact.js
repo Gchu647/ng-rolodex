@@ -1,12 +1,12 @@
 const bookshelf = require('./bookshelf');
 
-class Client extends bookshelf.Model {
+class Contact extends bookshelf.Model {
   get tableName() { return 'users'; }
   get hasTimestamps() { return true; }
 
-  clients() {
+  users() {
     return this.belongsTo('User', 'created_by');
   }
 }
 
-module.exports = bookshelf.model('Client', Client);
+module.exports = bookshelf.model('Contact', Contact);
