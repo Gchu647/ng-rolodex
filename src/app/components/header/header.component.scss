@@ -11,22 +11,22 @@
     font-style: normal;
     font-weight: 100;
   }
-}
 
-ul {
-  margin: 15px;
-  padding: 15px;
-  list-style-type: none;
-  font-size: 20px;
-}
-
-li {
-  display: inline-block;
-  margin-right: 15px;
-
-  a {
-    text-decoration: none;
-    color: #F0F7F4;
-    &:hover {color:#70ABAF;}
+  ul {
+    margin: 15px;
+    padding: 15px;
+    list-style-type: none;
+    font-size: 20px;
+  }
+  
+  li {
+    display: inline-block;
+    margin-right: 15px;
+  
+    a {
+      text-decoration: none;
+      color: #F0F7F4;
+      &:hover {color:#70ABAF;}
+    }
   }
 }
