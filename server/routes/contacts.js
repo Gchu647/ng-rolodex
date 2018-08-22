@@ -69,4 +69,45 @@ router.post('/', (req, res) => {
     .catch(err => res.json(err.message));
 })
 
+// Update and respond with updated contact
+router.put('/:id', (req, res) => {
+  const id = req.params.id;
+  const contactInfo = {
+    name: req.body.name, // not null
+    address: req.body.address,
+    mobile: req.body.mobile,
+    work: req.body.work,
+    home: req.body.home,
+    email: req.body.email,
+    twitter: req.body.twitter,
+    instagram: req.body.instagram,
+    github: req.body.github,
+    created_by: req.body.created_by//not null
+  }
+
+  return new Contact()
+    .where({id})
+    .save(
+      contactInfo,
+      {'patch': true}
+    )
+    .then(contact => {
+      res.json(contact);
+    })
+    .catch(err => res.json(err.message));
+})
+
+// Delete the contact that matches the given id
+router.delete('/:id', (req, res) => {
+  const id = req.params.id;
+
+  return new Contact()
+    .where({id})
+    .destroy()
+    .then(() => {
+      res.send(`Contact id ${id} deleted`);
+    })
+    .catch(err => res.json(err.message));
+})
+
 module.exports = router;
