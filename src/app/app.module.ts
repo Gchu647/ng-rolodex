@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 
@@ -16,7 +17,14 @@ import { ProfileComponent } from './pages/profile/profile.component';
     ProfileComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(
+      [
+        {path: '', component: HomepageComponent},
+        {path: 'contacts', component: ContactsComponent},
+        {path: 'profile', component: ProfileComponent},
+      ]
+    )
   ],
   providers: [],
   bootstrap: [AppComponent]
