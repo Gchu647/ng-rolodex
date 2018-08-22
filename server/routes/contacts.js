@@ -22,17 +22,28 @@ router.get('/search/:term' , (req, res) => {
   const created_by = req.query.user;
 
   return Contact
-  .query(function(qb) {
+  .query(function(qb) { // Had to use a query to use where and where
     qb.where({created_by})
       .andWhere('name', 'like', term);
   })
-  // .where({created_by})
-  // .orWhere('name', 'like', term)
   .fetchAll()
   .then(userContacts => {
     res.json(userContacts);
   })
   .catch(err => res.json(err.message));
+})
+
+// Find contact by id
+router.get('/:id', (req, res) => {
+  const id = req.params.id;
+
+  return new Contact()
+    .where({id})
+    .fetch()
+    .then(contact => {
+      res.json(contact);
+    })
+    .catch(err => res.json(err.message));
 })
 
 // Posting a new contact
