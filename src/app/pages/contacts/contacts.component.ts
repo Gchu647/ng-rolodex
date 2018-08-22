@@ -9,14 +9,13 @@ import { BackendService } from '../../services/backend.service';
 
 export class ContactsComponent implements OnInit {
 
-  constructor() {}
-  // constructor(private backend: BackendService) {}
+  constructor(private backend: BackendService) {}
 
   // WORKING on
   ngOnInit() {
-    // this.backend.contacts()
-    // .then((response) => {
-    //   console.log('response', response);
-    // })
+    this.backend.contacts()
+    .then((response) => {
+      console.log('response', response);
+    })
   }
 }

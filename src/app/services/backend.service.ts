@@ -14,8 +14,9 @@ export class BackendService {
 
   // WORKING on
   contacts() {
-    const contactUrl = this.url + 'contact';
-    console.log('contact backend');
-    return this.http.post(contactUrl, null).toPromise();
+    // const contactUrl = this.url + 'contact';
+    // console.log('contact backend');
+    // return this.http.post(contactUrl, null).toPromise();
+    return Promise.resolve({});
   }
 }

@@ -26,11 +26,13 @@ import { BackendService } from './services/backend.service';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     RouterModule.forRoot(
       [
         {path: '', component: HomepageComponent},
         {path: 'contacts', component: ContactsComponent},
         {path: 'profile', component: ProfileComponent},
+        {path:'**', redirectTo:'', pathMatch:'full'},
       ]
     )
   ],
