@@ -14,8 +14,8 @@ router.get('/profile', (req, res) => { // Fetches the profile of a user
     .catch(err => res.json(err.message));
  });
 
- router.put('/users/:id' , (req, res) => { //take out the id later
-  const id = req.params.id;
+ router.put('/users' , (req, res) => { //take out the id later
+  const id = req.query.user;
   const username = req.body.username ? req.body.username.trim() : null;
   const name = req.body.name.trim();
   const email = req.body.email.trim();
@@ -36,5 +36,17 @@ router.get('/profile', (req, res) => { // Fetches the profile of a user
     })
     .catch(err => res.json(err.message));
  })
+
+//  router.post('/login', (req, res) => {
+//    res.send('login works!');
+//  })
+
+//  router.post('/logout', (req, res) => {
+//   res.send('logout works!');
+// })
+
+// router.post('/register', (req, res) => {
+//   res.send('register works!');
+// })
 
 module.exports = router;
