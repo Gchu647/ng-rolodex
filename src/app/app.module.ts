@@ -4,6 +4,9 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 
+//Shared
+import { HeaderComponent } from './components/header/header.component';
+
 // Pages
 import { HomepageComponent } from './pages/homepage/homepage.component';
 import { ContactsComponent } from './pages/contacts/contacts.component';
@@ -15,6 +18,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
     HomepageComponent,
     ContactsComponent,
     ProfileComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
