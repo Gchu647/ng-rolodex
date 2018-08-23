@@ -8,6 +8,17 @@ import { BackendService } from '../../services/backend.service';
 })
 
 export class ContactsComponent implements OnInit {
+  contactsData: {
+    name: string,
+    address: string,
+    mobile: string,
+    email: string,
+  } = {
+    name: '',
+    address: '',
+    mobile: '',
+    email: '',
+  };
 
   constructor(private backend: BackendService) {}
 
@@ -15,6 +26,7 @@ export class ContactsComponent implements OnInit {
   ngOnInit() {
     this.backend.contacts()
     .then((response) => {
+      this.contactsData = response[0];
       console.log('response', response);
     })
   }
