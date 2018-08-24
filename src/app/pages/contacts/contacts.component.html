@@ -4,4 +4,8 @@
   This is the contacts page!
 </p>
 
-{{ contactsData | json }}
+<ul>
+  <li *ngFor="let contact of contactsData">
+    {{ contact | json }}
+  </li>
+</ul>
