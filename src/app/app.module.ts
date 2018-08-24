@@ -12,6 +12,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { HomepageComponent } from './pages/homepage/homepage.component';
 import { ContactsComponent } from './pages/contacts/contacts.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { CreateContactComponent } from './pages/createContact/createContact.component';
 
 // Services
 import { BackendService } from './services/backend.service';
@@ -23,6 +24,7 @@ import { BackendService } from './services/backend.service';
     ContactsComponent,
     ProfileComponent,
     HeaderComponent,
+    CreateContactComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,6 +33,7 @@ import { BackendService } from './services/backend.service';
       [
         {path: '', component: HomepageComponent},
         {path: 'contacts', component: ContactsComponent},
+        {path: 'newcontact', component: CreateContactComponent},
         {path: 'profile', component: ProfileComponent},
         {path:'**', redirectTo:'', pathMatch:'full'},
       ]
