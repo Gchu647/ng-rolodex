@@ -8,20 +8,18 @@ import { BackendService } from '../../services/backend.service';
 })
 
 export class ContactsComponent implements OnInit {
-  contactsData: {id: number, text: string}[];
+  contactsList: any;
 
   constructor(private backend: BackendService) {}
 
-  // WORKING on
+  // WORKING on sending user param id over
+  // fetches all the contacts from a user after component initiate
+  // the response is a weird array that is type object
   ngOnInit() {
     this.backend.contacts()
     .then((response) => {
-      // this.contactsData = response;
-      console.log('response', response);
+      console.log(response);
+      this.contactsList = response;
     })
-    this.contactsData = [
-      {id:1, text: 'George'},
-      {id: 2, text: 'Andy'}
-    ];
   }
 }

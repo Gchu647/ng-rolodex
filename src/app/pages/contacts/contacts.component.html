@@ -4,8 +4,11 @@
   This is the contacts page!
 </p>
 
-<ul>
-  <li *ngFor="let contact of contactsData">
-    {{ contact | json }}
-  </li>
-</ul>
+<div *ngFor="let contact of contactsList">
+    <h3>{{ contact.name }}</h3>
+    <ul>
+      <li>{{ contact.address }}</li>
+      <li>{{ contact.mobile }}</li>
+      <li>{{ contact.email }}</li>
+    </ul>
+  </div>
