@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { BackendService } from '../../services/backend.service';
 
 @Component({
   selector: 'app-createContact',
@@ -16,7 +17,8 @@ export class CreateContactComponent {
     home: string | null,
     twitter: string | null,
     instagram: string | null,
-    github: string | null
+    github: string | null,
+    created_by: number,
   } = {
     name: '',
     address: '',
@@ -27,12 +29,16 @@ export class CreateContactComponent {
     twitter: null,
     instagram: null,
     github: null,
+    created_by: 1 // hard coded
   }
 
-  constructor() {}
+  constructor(private backend: BackendService) {}
   
   create() {
-    console.log(this.newContact);
+    this.backend.addContact(this.newContact)
+    .then( response => {
+      console.log(response);
+    });
   }
 
 }
