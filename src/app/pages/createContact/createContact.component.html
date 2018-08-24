@@ -1,3 +1,30 @@
-<p>
-  create contacts form works
-</p>
+<h1>
+  New Contact Form
+</h1>
+
+
+<div class='new-contact-container'>
+  <form>
+    <input type='text' name='name' placeholder='name' [(ngModel)]='newContact.name'>
+    <br>
+    <input type='text' name='address' placeholder='address' [(ngModel)]='newContact.address'>
+    <br>
+    <input type='text' name='mobile' placeholder='mobile' [(ngModel)]='newContact.mobile'>
+    <br>
+    <input type='text' name='email' placeholder='email' [(ngModel)]='newContact.email'>
+    <br>
+    <input type='text' name='work' placeholder='work(optional)' [(ngModel)]='newContact.work'>
+    <br>
+    <input type='text' name='home' placeholder='home(optional)' [(ngModel)]='newContact.home'>
+    <br>
+    <input type='text' name='twitter' placeholder='twitter(optional)' [(ngModel)]='newContact.twitter'>
+    <br>
+    <input type='text' name='instagram' placeholder='instagram(optional)' [(ngModel)]='newContact.instagram'>
+    <br>
+    <input type='text' name='github' placeholder='github(optional)' [(ngModel)]='newContact.github'>
+    <br>
+    <button class='btn' (click)="create()">Create</button>
+    
+  </form>
+
+</div>

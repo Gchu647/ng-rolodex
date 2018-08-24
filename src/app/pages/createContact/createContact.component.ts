@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-createContact',
@@ -6,11 +6,33 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./createContact.component.scss']
 })
 
-export class CreateContactComponent implements OnInit {
+export class CreateContactComponent {
+  newContact: {
+    name: string,
+    address: string,
+    mobile: string,
+    email: string,
+    work: string | null,
+    home: string | null,
+    twitter: string | null,
+    instagram: string | null,
+    github: string | null
+  } = {
+    name: '',
+    address: '',
+    mobile: '',
+    email: '',
+    work: null,
+    home: null,
+    twitter: null,
+    instagram: null,
+    github: null,
+  }
 
   constructor() {}
-
-  ngOnInit() {
-
+  
+  create() {
+    console.log(this.newContact);
   }
+
 }
