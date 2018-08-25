@@ -14,7 +14,7 @@ export class LoginComponent {
   } = {
     username: ''
   };
-  
+
   constructor(    
     private auth: AuthService,
     private router: Router,

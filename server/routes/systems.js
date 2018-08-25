@@ -41,10 +41,21 @@ router.get('/profile', (req, res) => {
 
  // Login in a user
  router.post('/login', (req, res) => {
-  res.json({
-    id: 1,
-    username: req.body.username
-  });
+   console.log('Loging in as', req.body);
+  const username = req.body.username.trim();
+
+  return new User()
+  .where({ username })
+  .fetch()
+  .then(user => {
+    res.json(user);
+  })
+  .catch(err => res.json(err.message));
+
+  // res.json({
+  //   id: 1,
+  //   username: req.body.username
+  // });
  })
 
 //  router.post('/logout', (req, res) => {
