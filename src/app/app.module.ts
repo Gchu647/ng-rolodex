@@ -6,14 +6,15 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 
-// Shared
-import { HeaderComponent } from './components/header/header.component';
-
 // Pages
 import { HomepageComponent } from './pages/homepage/homepage.component';
 import { ContactsComponent } from './pages/contacts/contacts.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { CreateContactComponent } from './pages/createContact/createContact.component';
+import { LoginComponent } from './pages/login/login.component';
+
+// Shared
+import { HeaderComponent } from './components/header/header.component';
 
 // Services
 import { BackendService } from './services/backend.service';
@@ -26,6 +27,7 @@ import { BackendService } from './services/backend.service';
     ProfileComponent,
     HeaderComponent,
     CreateContactComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,6 +39,7 @@ import { BackendService } from './services/backend.service';
         {path: 'contacts', component: ContactsComponent},
         {path: 'newcontact', component: CreateContactComponent},
         {path: 'profile', component: ProfileComponent},
+        {path: 'login', component: LoginComponent},
         {path:'**', redirectTo:'', pathMatch:'full'},
       ]
     )
