@@ -20,7 +20,7 @@ router.get('/', (req, res) => {
 router.get('/search/:term' , (req, res) => {
   const term = `%${req.params.term}%`;
   const created_by = req.query.user;
-
+  console.log('Search server!');
   return Contact
   .query(function(qb) { // Had to use a query to use where and where
     qb.where({created_by})

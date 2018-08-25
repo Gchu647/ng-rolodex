@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { BackendService } from '../../services/backend.service';
 
 @Component({
   selector: 'app-homepage',
@@ -6,11 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./homepage.component.scss']
 })
 
-export class HomepageComponent implements OnInit {
+export class HomepageComponent {
+  term: string = '';
+  contactsMatch: any = '';
 
-  constructor() {}
+  constructor(private backend: BackendService) {}
 
-  ngOnInit() {
-
+  search() {
+    this.backend.search(this.term)
+    .then(response => {
+      console.log('search result: ', response);
+      this.contactsMatch = response;
+    })
   }
 }
