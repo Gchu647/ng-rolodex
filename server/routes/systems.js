@@ -2,7 +2,8 @@ const express = require('express');
 const router = express.Router();
 const User = require('../db/models/User');
 
-router.get('/profile', (req, res) => { // Fetches the profile of a user
+// Fetches the profile of a user
+router.get('/profile', (req, res) => {
   const id = req.query.user;
 
   return new User()
@@ -14,6 +15,7 @@ router.get('/profile', (req, res) => { // Fetches the profile of a user
     .catch(err => res.json(err.message));
  });
 
+ // Edits a user's information
  router.put('/users' , (req, res) => { //take out the id later
   const id = req.query.user;
   const username = req.body.username ? req.body.username.trim() : null;
@@ -37,9 +39,13 @@ router.get('/profile', (req, res) => { // Fetches the profile of a user
     .catch(err => res.json(err.message));
  })
 
-//  router.post('/login', (req, res) => {
-//    res.send('login works!');
-//  })
+ // Login in a user
+ router.post('/login', (req, res) => {
+  res.json({
+    id: 1,
+    username: req.body.username
+  });
+ })
 
 //  router.post('/logout', (req, res) => {
 //   res.send('logout works!');

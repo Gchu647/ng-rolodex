@@ -18,6 +18,8 @@ import { HeaderComponent } from './components/header/header.component';
 
 // Services
 import { BackendService } from './services/backend.service';
+import { AuthService } from './services/auth.service';
+import { SessionService } from './services/session.service';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,11 @@ import { BackendService } from './services/backend.service';
       ]
     )
   ],
-  providers: [BackendService],
+  providers: [
+    BackendService,
+    AuthService,
+    SessionService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

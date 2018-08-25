@@ -1,4 +1,6 @@
+import { Router } from '@angular/router';
 import { Component } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -7,7 +9,28 @@ import { Component } from '@angular/core';
 })
 
 export class LoginComponent {
+  loginFormData: {
+    username: string
+  } = {
+    username: ''
+  };
+  
+  constructor(    
+    private auth: AuthService,
+    private router: Router,
+  ) {}
 
-  constructor() {}
 
+  login() {
+    return this.auth.login(this.loginFormData)
+    .then(() => {
+      console.log('user logged in');
+    })
+    .then(() => {
+      this.router.navigate(['/']); // Redirect
+    })
+    .catch((err) => {
+      console.log('error: ', err.message);
+    })
+  }
 }
