@@ -27,7 +27,7 @@ export class LoginComponent {
       console.log('user logged in');
     })
     .then(() => {
-      this.router.navigate(['/']); // Redirect
+      this.router.navigate(['/home']); // Redirect
     })
     .catch((err) => {
       console.log('error: ', err.message);

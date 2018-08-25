@@ -51,16 +51,12 @@ router.get('/profile', (req, res) => {
     res.json(user);
   })
   .catch(err => res.json(err.message));
-
-  // res.json({
-  //   id: 1,
-  //   username: req.body.username
-  // });
  })
 
-//  router.post('/logout', (req, res) => {
-//   res.send('logout works!');
-// })
+ // Log user out
+router.get('/logout', (req, res) => {
+  res.json({ success: true });
+})
 
 // router.post('/register', (req, res) => {
 //   res.send('register works!');

@@ -26,4 +26,9 @@ export class BackendService {
     const loginUrl = this.url + 'login';
     return this.http.post(loginUrl, data).toPromise();
   }
+
+  logout() {
+    const logoutUrl = this.url + 'logout';
+    return this.http.get(logoutUrl).toPromise();
+  }
 }

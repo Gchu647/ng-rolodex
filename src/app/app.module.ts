@@ -37,11 +37,11 @@ import { SessionService } from './services/session.service';
     FormsModule,
     RouterModule.forRoot(
       [
-        {path: '', component: HomepageComponent},
+        {path: '', component: LoginComponent},
+        {path: 'home', component: HomepageComponent},
         {path: 'contacts', component: ContactsComponent},
         {path: 'newcontact', component: CreateContactComponent},
         {path: 'profile', component: ProfileComponent},
-        {path: 'login', component: LoginComponent},
         {path:'**', redirectTo:'', pathMatch:'full'},
       ]
     )

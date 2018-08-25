@@ -14,8 +14,15 @@ export class AuthService {
   login(data) {
     return this.backend.login(data)
     .then((response) => {
-      console.log('auth got response: ', response);
+      console.log('auth got response from server login: ', response);
       return this.session.setSession(response['username']);
+    })
+  }
+
+  logout() {
+    return this.backend.logout()
+    .then(() => {
+      return this.session.clearSession();
     })
   }
 }
