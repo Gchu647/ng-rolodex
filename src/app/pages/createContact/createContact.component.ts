@@ -37,6 +37,7 @@ export class CreateContactComponent {
   user: {
     loggedIn: boolean,
     username: string,
+    userId: number,
   };
 
   constructor(
@@ -50,7 +51,7 @@ export class CreateContactComponent {
   create() {
     console.log("our user!", this.user);
     if(this.session.isLoggedIn()) {
-      let text = this.auth.addContact(this.newContact, this.user.username);
+      let text = this.auth.addContact(this.newContact, this.user.userId);
       console.log(text);
     } else {
       console.log('Log in as a user first!');

@@ -6,10 +6,12 @@ import { Injectable } from '@angular/core';
 export class SessionService {
   user: {
     loggedIn: boolean,
-    username: string
+    username: string,
+    userId: number, // not sure if I should pass user id around in sessions
   } = {
     loggedIn: false,
-    username: ''
+    username: '',
+    userId: null,
   }
 
   constructor() {
@@ -28,9 +30,10 @@ export class SessionService {
     return this.user;
   }
 
-  setSession(username) {
+  setSession(username, userId) {
     this.user.username = username;
     this.user.loggedIn = true;
+    this.user.userId = userId;
 
     let userString = JSON.stringify(this.user);
     window.localStorage.setItem('user', userString);

@@ -15,7 +15,7 @@ export class AuthService {
     return this.backend.login(data)
     .then((response) => {
       console.log('auth got response from server login: ', response);
-      return this.session.setSession(response['username']);
+      return this.session.setSession(response['username'], response['id']); // set session information
     })
   }
 
@@ -26,7 +26,7 @@ export class AuthService {
     })
   }
 
-  addContact(contact, user) {
-    return `${contact.name} was added by ${user}`;
+  addContact(contact, userId) {
+    return `${contact.name} was added by user with id ${userId}`;
   }
 }
