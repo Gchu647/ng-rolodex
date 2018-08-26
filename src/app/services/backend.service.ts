@@ -17,13 +17,18 @@ export class BackendService {
     return this.http.get(contactUrl).toPromise();
   }
 
+  profile() {
+    const contactUrl = this.url + 'profile?user=1'; // hard coded
+    return this.http.get(contactUrl).toPromise();
+  }
+
   contacts() {
     const contactUrl = this.url + 'contacts?user=1'; // hard coded
     return this.http.get(contactUrl).toPromise();
   }
 
   addContact(data) {
-    const contactUrl = this.url + 'contacts'; // hard coded
+    const contactUrl = this.url + 'contacts';
     return this.http.post(contactUrl, data).toPromise();
   }
 

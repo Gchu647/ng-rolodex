@@ -1,0 +1,21 @@
+.header {
+  text-align: center;
+
+  h1 {
+    padding: 15px;
+  }
+}
+
+.user-container {
+  width: 100%;
+  max-width: 400px;
+  border:solid 3px #D8CFAF;
+  border-radius: 10px;
+  box-shadow: 10px 10px 2px 2px #999999;
+  margin: auto;
+  margin-top: 35px;
+
+  ul {
+    list-style-type: none;
+  }
+}
