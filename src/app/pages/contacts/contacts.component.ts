@@ -18,7 +18,6 @@ export class ContactsComponent implements OnInit {
   ngOnInit() {
     this.backend.contacts()
     .then((response) => {
-      console.log(response);
       this.contactsList = response;
     })
   }

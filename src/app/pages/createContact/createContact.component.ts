@@ -46,25 +46,24 @@ export class CreateContactComponent {
     private router: Router,
   ) {
     this.user = this.session.getSession(); // Get username and login from session
+    this.newContact.created_by = this.user.userId;
   };
   
+  // this passes newContact information to auth
   create() {
     console.log("our user!", this.user);
     if(this.session.isLoggedIn()) {
-      let text = this.auth.addContact(this.newContact, this.user.userId);
-      console.log(text);
+      return this.auth.addContact(this.newContact)
+      .then(() => {
+        console.log('contact added!');
+     })
+     .then(() => {
+       console.log('navigate to contacts page!');
+       this.router.navigate(['/contacts']);
+     })
+     .catch((err) => console.log('error: ', err.message));
     } else {
       console.log('Log in as a user first!');
     }
-    // this.backend.addContact(this.newContact)
-    // .then(() => {
-    //    console.log('contact added!');
-    // })
-    // .then(() => {
-    //   console.log('navigate to contacts page!');
-    //   this.router.navigate(['/contacts']);
-    // })
-    // .catch((err) => console.log('error: ', err.message));
   }
-
 }

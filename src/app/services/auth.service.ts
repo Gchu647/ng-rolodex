@@ -26,7 +26,10 @@ export class AuthService {
     })
   }
 
-  addContact(contact, userId) {
-    return `${contact.name} was added by user with id ${userId}`;
+  addContact(contact) {
+    return this.backend.addContact(contact)
+    .then(() => {
+      return true;
+    });
   }
 }

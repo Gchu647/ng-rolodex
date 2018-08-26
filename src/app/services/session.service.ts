@@ -33,7 +33,7 @@ export class SessionService {
   setSession(username, userId) {
     this.user.username = username;
     this.user.loggedIn = true;
-    this.user.userId = userId;
+    this.user.userId = parseInt(userId);
 
     let userString = JSON.stringify(this.user);
     window.localStorage.setItem('user', userString);
