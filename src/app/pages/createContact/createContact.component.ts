@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { BackendService } from '../../services/backend.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-createContact',
@@ -32,13 +33,21 @@ export class CreateContactComponent {
     created_by: 1 // hard coded
   }
 
-  constructor(private backend: BackendService) {}
+  constructor(
+    private backend: BackendService,
+    private router: Router,
+  ) {}
   
   create() {
     this.backend.addContact(this.newContact)
-    .then( response => {
-      console.log(response);
-    });
+    .then(() => {
+       console.log('contact added!');
+    })
+    .then(() => {
+      console.log('navigate to contacts page!');
+      this.router.navigate(['/contacts']);
+    })
+    .catch((err) => console.log('error: ', err.message));
   }
 
 }

@@ -29,8 +29,6 @@ export class LoginComponent {
     .then(() => {
       this.router.navigate(['/home']); // Redirect
     })
-    .catch((err) => {
-      console.log('error: ', err.message);
-    })
+    .catch((err) => console.log('error: ', err.message));
   }
 }
