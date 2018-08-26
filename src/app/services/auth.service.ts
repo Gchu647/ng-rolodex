@@ -9,7 +9,7 @@ export class AuthService {
   constructor(
     private backend: BackendService,
     private session: SessionService
-  ){ }
+  ){};
 
   login(data) {
     return this.backend.login(data)
@@ -24,5 +24,9 @@ export class AuthService {
     .then(() => {
       return this.session.clearSession();
     })
+  }
+
+  addContact(contact, user) {
+    return `${contact.name} was added by ${user}`;
   }
 }

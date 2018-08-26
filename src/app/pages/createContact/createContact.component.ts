@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { BackendService } from '../../services/backend.service';
+import { SessionService } from '../../services/session.service';
+import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -30,24 +31,39 @@ export class CreateContactComponent {
     twitter: null,
     instagram: null,
     github: null,
-    created_by: 1 // hard coded
+    created_by: 1 // get user from session
   }
 
+  user: {
+    loggedIn: boolean,
+    username: string,
+  };
+
   constructor(
-    private backend: BackendService,
+    private auth: AuthService,
+    private session: SessionService,
     private router: Router,
-  ) {}
+  ) {
+    this.user = this.session.getSession(); // Get username and login from session
+  };
   
   create() {
-    this.backend.addContact(this.newContact)
-    .then(() => {
-       console.log('contact added!');
-    })
-    .then(() => {
-      console.log('navigate to contacts page!');
-      this.router.navigate(['/contacts']);
-    })
-    .catch((err) => console.log('error: ', err.message));
+    console.log("our user!", this.user);
+    if(this.session.isLoggedIn()) {
+      let text = this.auth.addContact(this.newContact, this.user.username);
+      console.log(text);
+    } else {
+      console.log('Log in as a user first!');
+    }
+    // this.backend.addContact(this.newContact)
+    // .then(() => {
+    //    console.log('contact added!');
+    // })
+    // .then(() => {
+    //   console.log('navigate to contacts page!');
+    //   this.router.navigate(['/contacts']);
+    // })
+    // .catch((err) => console.log('error: ', err.message));
   }
 
 }
