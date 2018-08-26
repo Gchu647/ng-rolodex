@@ -1,14 +1,16 @@
 <!-- This page shows you all your contacts -->
 
-<p>
-  This is the contacts page!
-</p>
+<div class='header'>
+    <h1> All Contacts </h1>
+</div>
 
-<div *ngFor="let contact of contactsList">
-    <h3>{{ contact.name }}</h3>
-    <ul>
-      <li>{{ contact.address }}</li>
-      <li>{{ contact.mobile }}</li>
-      <li>{{ contact.email }}</li>
-    </ul>
-  </div>
+<div class='contacts-container'>
+  <div class='contacts' *ngFor="let contact of contactsList">
+      <h3>{{ contact.name }}</h3>
+      <ul>
+        <li>{{ contact.address }}</li>
+        <li>{{ contact.mobile }}</li>
+        <li>{{ contact.email }}</li>
+      </ul>
+   </div>
+</div>

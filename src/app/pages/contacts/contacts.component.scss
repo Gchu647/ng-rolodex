@@ -1,0 +1,24 @@
+.header {
+  text-align: center;
+
+  h1 {
+    padding: 15px;
+  }
+}
+
+.contacts-container {
+  display: flex;
+  flex-flow: row wrap;
+
+  .contacts{
+    width: 20%;
+    max-width: 320px;
+    margin: 20px;
+    border: solid 3px #D8CFAF;
+    border-radius: 10px;
+
+    h3 {
+      text-align: center;
+    }
+  }
+}
