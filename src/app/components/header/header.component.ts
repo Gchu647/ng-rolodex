@@ -9,15 +9,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  user: object;
-
   constructor(
     private auth: AuthService,
     private session: SessionService,
     private router: Router,
-  ) { 
-    this.user = session.getSession();
-  }
+  ) {}
 
   isLoggedIn() {
     return this.session.isLoggedIn();
