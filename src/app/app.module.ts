@@ -20,6 +20,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { BackendService } from './services/backend.service';
 import { AuthService } from './services/auth.service';
 import { SessionService } from './services/session.service';
+import { GuardService } from './services/guard.service';
 
 @NgModule({
   declarations: [
@@ -38,10 +39,10 @@ import { SessionService } from './services/session.service';
     RouterModule.forRoot(
       [
         {path: '', component: LoginComponent},
-        {path: 'home', component: HomepageComponent},
-        {path: 'contacts', component: ContactsComponent},
-        {path: 'newcontact', component: CreateContactComponent},
-        {path: 'profile', component: ProfileComponent},
+        {path: 'home', component: HomepageComponent, canActivate: [GuardService]},
+        {path: 'contacts', component: ContactsComponent, canActivate: [GuardService]},
+        {path: 'newcontact', component: CreateContactComponent, canActivate: [GuardService]},
+        {path: 'profile', component: ProfileComponent, canActivate: [GuardService]},
         {path:'**', redirectTo:'', pathMatch:'full'},
       ]
     )
@@ -50,6 +51,7 @@ import { SessionService } from './services/session.service';
     BackendService,
     AuthService,
     SessionService,
+    GuardService,
   ],
   bootstrap: [AppComponent]
 })

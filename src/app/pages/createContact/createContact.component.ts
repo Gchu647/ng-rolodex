@@ -52,7 +52,6 @@ export class CreateContactComponent {
   // this passes newContact information to auth
   create() {
     console.log("our user!", this.user);
-    if(this.session.isLoggedIn()) {
       return this.auth.addContact(this.newContact)
       .then(() => {
         console.log('contact added!');
@@ -62,8 +61,5 @@ export class CreateContactComponent {
        this.router.navigate(['/contacts']);
      })
      .catch((err) => console.log('error: ', err.message));
-    } else {
-      console.log('Log in as a user first!');
-    }
   }
 }
